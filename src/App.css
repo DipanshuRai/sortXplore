@@ -1,0 +1,127 @@
+.container{
+    padding: 10px;
+    background-color: rgba(0, 0, 0, 0.481);
+    font-family: sans-serif;
+}
+
+.header{
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.header .title{
+    flex: 1;
+    padding: 10px;
+    font-size: 40px;
+    font-weight: 800;
+    border: 0px solid black;
+    border-radius: 10px;
+    background-color: rgba(37, 37, 36, 0.616);
+    color: rgba(208, 207, 207, 0.701);
+    text-align: center;
+    align-content: center;
+}
+
+.header .parameter{
+    flex: 2;
+    display: flex;
+    flex-wrap: wrap;
+    border: 0px solid black;
+    border-radius: 10px;
+    background-color: rgba(37, 37, 36, 0.616);
+    color: rgba(208, 207, 207, 0.701);
+    align-items: center;
+}
+
+.header .parameter .sub-parameter{
+    flex: 2;
+    font-size: 20px;
+    font-weight: 600;
+    display: flex;
+    flex-direction: column;
+    margin: 0 20px;
+}
+
+.header .parameter .sub-parameter .para{
+    flex: 1;
+    display: flex;
+}
+
+p{
+    margin-right: 20px;
+    width: 40%;
+}
+
+input{
+    width: 50%;
+}
+
+.header .parameter .button{
+    flex: 1;
+    font-size: 20px;
+    font-weight: 700;
+    margin: 10px;
+    height: 50px;
+    background-color: rgba(0, 0, 0, 0.508);
+    color: rgba(208, 207, 207, 0.701);
+    border: 0px solid black;
+    border-radius: 10px;
+}
+
+.algo{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    justify-content: center;
+}
+
+.algo .button{
+    margin: 10px 0;
+    padding: 5px 15px;
+    border: 0px solid black;
+    border-radius: 10px;
+    font-size: 20px;
+    font-weight: 700;
+    background-color: rgba(0, 0, 0, 0.508);
+    color: rgba(208, 207, 207, 0.701);
+}
+
+.main{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+#complexity{
+    padding: 0 10px;
+    flex: 1;
+    border: 0px solid black;
+    border-radius: 10px;
+    background-color: rgba(37, 37, 36, 0.616);
+    color: rgba(208, 207, 207, 0.701);
+    min-height: 72.5vh;
+}
+
+#complexity h3{
+    text-decoration: underline;
+}
+
+.cases{
+    font-weight: 600;
+}
+
+#array_container{
+    flex: 2;
+    padding: 10px;
+    border: 0px solid black;
+    border-radius: 10px;
+    background-color: rgba(37, 37, 36, 0.616);
+    color: rgba(208, 207, 207, 0.701);
+}
+
+@media (max-width: 500px) {
+    input {
+        width: auto;
+    }
+}

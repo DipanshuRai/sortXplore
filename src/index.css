@@ -1,7 +1,7 @@
 body {
   margin: 0;
-  display: flex;
-  place-items: center;
+  padding: 0;
   min-width: 320px;
   min-height: 100vh;
+  /* background-color: rgb(201, 201, 201); */
 }
