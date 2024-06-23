@@ -1,16 +1,16 @@
-.container{
+.container {
     padding: 10px;
     background-color: rgba(0, 0, 0, 0.481);
     font-family: sans-serif;
 }
 
-.header{
+.header {
     display: flex;
     gap: 10px;
     flex-wrap: wrap;
 }
 
-.header .title{
+.header .title {
     flex: 1;
     padding: 10px;
     font-size: 40px;
@@ -23,7 +23,7 @@
     align-content: center;
 }
 
-.header .parameter{
+.header .parameter {
     flex: 2;
     display: flex;
     flex-wrap: wrap;
@@ -34,7 +34,7 @@
     align-items: center;
 }
 
-.header .parameter .sub-parameter{
+.header .parameter .sub-parameter {
     flex: 2;
     font-size: 20px;
     font-weight: 600;
@@ -43,21 +43,21 @@
     margin: 0 20px;
 }
 
-.header .parameter .sub-parameter .para{
+.header .parameter .sub-parameter .para {
     flex: 1;
     display: flex;
 }
 
-p{
+p {
     margin-right: 20px;
     width: 40%;
 }
 
-input{
+input {
     width: 50%;
 }
 
-.header .parameter .button{
+.header .parameter .button {
     flex: 1;
     font-size: 20px;
     font-weight: 700;
@@ -69,14 +69,14 @@ input{
     border-radius: 10px;
 }
 
-.algo{
+.algo {
     display: flex;
     flex-wrap: wrap;
     gap: 15px;
     justify-content: center;
 }
 
-.algo .button{
+.algo .button {
     margin: 10px 0;
     padding: 5px 15px;
     border: 0px solid black;
@@ -87,13 +87,13 @@ input{
     color: rgba(208, 207, 207, 0.701);
 }
 
-.main{
+.main {
     display: flex;
     flex-wrap: wrap;
     gap: 10px;
 }
 
-#complexity{
+#complexity {
     padding: 0 10px;
     flex: 1;
     border: 0px solid black;
@@ -103,21 +103,30 @@ input{
     min-height: 72.5vh;
 }
 
-#complexity h3{
+#complexity h3 {
     text-decoration: underline;
 }
 
-.cases{
+.cases {
     font-weight: 600;
 }
 
-#array_container{
+.array-container {
     flex: 2;
     padding: 10px;
     border: 0px solid black;
     border-radius: 10px;
     background-color: rgba(37, 37, 36, 0.616);
     color: rgba(208, 207, 207, 0.701);
+    display: flex;
+    align-items: flex-end;
+    width: 100%;
+    min-height: 69vh;
+}
+
+.array-bar {
+    background-color: #007bff;
+    margin: 0 1px;
 }
 
 @media (max-width: 500px) {

@@ -1,18 +1,45 @@
-import { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import SelectionSort from './Algorithms/Selection';
 import './App.css';
 
 function App() {
+  const [arraySize, setArraySize] = useState(30);
+  const [algoSpeed, setAlgoSpeed] = useState(3);
+  const [array, setArray] = useState([]);
+  const [isSorting, setIsSorting] = useState(false);
 
-  const[arraySize,setArraySize]=useState(30);
-  const[algoSpeed,setAlgoSpeed]=useState(3);
-
-  const updateArraySize=(e)=>{
+  const updateArraySize = (e) => {
     setArraySize(Number(e.target.value));
   };
 
-  const updateAlgoSpeed=(e)=>{
+  const updateAlgoSpeed = (e) => {
     setAlgoSpeed(Number(e.target.value));
   };
+
+  const generateNewArray = () => {
+    if (!isSorting) {
+      const newArray = Array.from({ length: arraySize }, () => Math.floor(Math.random() * 500) + 5);
+      setArray(newArray);
+      resetArrayBarColors();
+    }
+  };
+
+  const resetArrayBarColors = () => {
+    const bars = document.getElementsByClassName('array-bar');
+    for (let bar of bars) {
+      bar.style.backgroundColor = 'blue';
+    }
+  };
+
+  useEffect(() => {
+    generateNewArray();
+  }, [arraySize]);
+
+  useEffect(() => {
+    if (!isSorting) {
+      resetArrayBarColors();
+    }
+  }, [isSorting]);
 
   return (
     <div className="container">
@@ -22,24 +49,40 @@ function App() {
           <div className="sub-parameter">
             <div className="para">
               <p>Array Size ({arraySize}) :</p>
-              <input type="range" id="arr_size" min="0" max="150" value={arraySize} onChange={updateArraySize}/>
+              <input
+                type="range"
+                id="arr_size"
+                min="10"
+                max="150"
+                value={arraySize}
+                onChange={updateArraySize}
+                disabled={isSorting}
+              />
             </div>
             <div className="para">
               <p>Algorithm Speed ({algoSpeed}) :</p>
-              <input type="range" id="algo_speed" min="0" max="5" value={algoSpeed} onChange={updateAlgoSpeed} />
+              <input
+                type="range"
+                id="algo_speed"
+                min="0"
+                max="5"
+                value={algoSpeed}
+                onChange={updateAlgoSpeed}
+                disabled={isSorting}
+              />
             </div>
           </div>
-          <button className="button">Generate Array</button>
+          <button className="button" onClick={generateNewArray} disabled={isSorting}>Generate Array</button>
         </div>
       </div>
       <div className="algo">
-        <div className="button" >Selection</div>
-        <div className="button" >Bubble</div>
-        <div className="button" >Insertion</div>
-        <div className="button" >Quick</div>
-        <div className="button" >Merge</div>
-        <div className="button" >Heap</div>
-      </div >
+        <div className="button" onClick={() => !isSorting && setIsSorting(true)}>Selection</div>
+        {/* <div className="button" onClick={Bubble}>Bubble</div>
+        <div className="button" onClick={Insertionn}>Insertion</div>
+        <div className="button" onClick={Quick}>Quick</div>
+        <div className="button" onClick={Merge}>Merge</div>
+        <div className="button" onClick={Heap}>Heap</div> */}
+      </div>
       <div className="main">
         <div id="complexity">
           <h3>TIME COMPLEXITY</h3>
@@ -65,11 +108,22 @@ function App() {
             </div>
           </div>
         </div>
-        <div id="array_container">
-
-          
+        <div className="array-container" id="array_container">
+          {array.map((value, index) => (
+            <div
+              key={index}
+              className="array-bar"
+              style={{
+                height: `${value}px`,
+                width: `${100 / arraySize}%`,
+                backgroundColor: 'blue'
+              }}
+            >
+            </div>
+          ))}
         </div>
       </div>
+      {isSorting && <SelectionSort array={array} setArray={setArray} algoSpeed={algoSpeed} setIsSorting={setIsSorting} />}
     </div>
   );
 }
