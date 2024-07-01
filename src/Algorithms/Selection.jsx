@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
 
 const SelectionSort = ({ array, setArray, algoSpeed, setIsSorting }) => {
 
@@ -17,11 +17,12 @@ const SelectionSort = ({ array, setArray, algoSpeed, setIsSorting }) => {
             const arrayCopy = [...array];
 
             for (let i = 0; i < n - 1; i++) {
-                let minIndex = i;
+                await new Promise((resolve) => setTimeout(resolve, (10 - algoSpeed) * 100));
                 updateColor(i,"red");
+                let minIndex = i;
                 for (let j = i + 1; j < n; j++) {
                     updateColor(j,"yellow");
-                    await new Promise((resolve) => setTimeout(resolve, (5 - algoSpeed) * 100));
+                    await new Promise((resolve) => setTimeout(resolve, (10 - algoSpeed) * 100));
                     if (arrayCopy[j] < arrayCopy[minIndex]) {
                         if (minIndex !== i)
                             updateColor(minIndex,"blue");
@@ -34,14 +35,11 @@ const SelectionSort = ({ array, setArray, algoSpeed, setIsSorting }) => {
                 if (minIndex !== i) {
                     [arrayCopy[i], arrayCopy[minIndex]] = [arrayCopy[minIndex], arrayCopy[i]];
                     setArray([...arrayCopy]);
-                    await new Promise((resolve) => setTimeout(resolve, (5 - algoSpeed) * 100));
                 }
                 updateColor(minIndex,"blue");
                 updateColor(i,"green");
             }
-            arrayCopy.forEach((_, idx) => {
-                updateColor(idx,"green");
-            });
+            updateColor(n-1,"green");
             setIsSorting(false);
         };
         selectionSort();

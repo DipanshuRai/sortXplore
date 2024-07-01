@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import SelectionSort from './Algorithms/Selection';
+import BubbleSort from './Algorithms/Bubble';
+import InsertionSort from './Algorithms/Insertion';
 import './App.css';
 
 function App() {
@@ -7,6 +9,7 @@ function App() {
   const [algoSpeed, setAlgoSpeed] = useState(3);
   const [array, setArray] = useState([]);
   const [isSorting, setIsSorting] = useState(false);
+  const [selectedAlgo, setSelectedAlgo] = useState(null);
 
   const updateArraySize = (e) => {
     setArraySize(Number(e.target.value));
@@ -64,8 +67,8 @@ function App() {
               <input
                 type="range"
                 id="algo_speed"
-                min="0"
-                max="5"
+                min="1"
+                max="10"
                 value={algoSpeed}
                 onChange={updateAlgoSpeed}
                 disabled={isSorting}
@@ -76,12 +79,9 @@ function App() {
         </div>
       </div>
       <div className="algo">
-        <div className="button" onClick={() => !isSorting && setIsSorting(true)}>Selection</div>
-        {/* <div className="button" onClick={Bubble}>Bubble</div>
-        <div className="button" onClick={Insertionn}>Insertion</div>
-        <div className="button" onClick={Quick}>Quick</div>
-        <div className="button" onClick={Merge}>Merge</div>
-        <div className="button" onClick={Heap}>Heap</div> */}
+        <div className="button" onClick={() => { if (!isSorting) { setSelectedAlgo('selection'); setIsSorting(true); }}}>Selection</div>
+        <div className="button" onClick={() => { if (!isSorting) { setSelectedAlgo('bubble'); setIsSorting(true); } }}>Bubble</div>
+        <div className="button" onClick={() => { if (!isSorting) { setSelectedAlgo('insertion'); setIsSorting(true); } }}>Insertion</div>
       </div>
       <div className="main">
         <div id="complexity">
@@ -122,8 +122,31 @@ function App() {
             </div>
           ))}
         </div>
+        {isSorting && selectedAlgo === 'selection' && (
+          <SelectionSort
+            array={array}
+            setArray={setArray}
+            algoSpeed={algoSpeed}
+            setIsSorting={setIsSorting}
+          />
+        )}
+        {isSorting && selectedAlgo === 'bubble' && (
+          <BubbleSort
+            array={array}
+            setArray={setArray}
+            algoSpeed={algoSpeed}
+            setIsSorting={setIsSorting}
+          />
+        )}
+        {isSorting && selectedAlgo === 'insertion' && (
+          <InsertionSort
+            array={array}
+            setArray={setArray}
+            algoSpeed={algoSpeed}
+            setIsSorting={setIsSorting}
+          />
+        )}
       </div>
-      {isSorting && <SelectionSort array={array} setArray={setArray} algoSpeed={algoSpeed} setIsSorting={setIsSorting} />}
     </div>
   );
 }
