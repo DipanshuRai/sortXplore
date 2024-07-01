@@ -10,18 +10,18 @@ function App() {
 
   const updateArraySize = (e) => {
     setArraySize(Number(e.target.value));
+    resetArrayBarColors();
   };
 
   const updateAlgoSpeed = (e) => {
     setAlgoSpeed(Number(e.target.value));
+    resetArrayBarColors();
   };
 
   const generateNewArray = () => {
-    if (!isSorting) {
-      const newArray = Array.from({ length: arraySize }, () => Math.floor(Math.random() * 500) + 5);
-      setArray(newArray);
-      resetArrayBarColors();
-    }
+    const newArray = Array.from({ length: arraySize }, () => Math.floor(Math.random() * 500) + 5);
+    setArray(newArray);
+    resetArrayBarColors();
   };
 
   const resetArrayBarColors = () => {
