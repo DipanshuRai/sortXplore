@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import SelectionSort from './Algorithms/Selection';
 import BubbleSort from './Algorithms/Bubble';
 import InsertionSort from './Algorithms/Insertion';
+import QuickSort from './Algorithms/Quick';
+import MergeSort from './Algorithms/Merge';
 import './App.css';
 
 function App() {
@@ -82,8 +84,24 @@ function App() {
         <div className="button" onClick={() => { if (!isSorting) { setSelectedAlgo('selection'); setIsSorting(true); }}}>Selection</div>
         <div className="button" onClick={() => { if (!isSorting) { setSelectedAlgo('bubble'); setIsSorting(true); } }}>Bubble</div>
         <div className="button" onClick={() => { if (!isSorting) { setSelectedAlgo('insertion'); setIsSorting(true); } }}>Insertion</div>
+        <div className="button" onClick={() => { if (!isSorting) { setSelectedAlgo('quick'); setIsSorting(true); } }}>Quick</div>
+        <div className="button" onClick={() => { if (!isSorting) { setSelectedAlgo('merge'); setIsSorting(true); } }}>Merge</div>
       </div>
       <div className="main">
+      <div className="array-container" id="array_container">
+          {array.map((value, index) => (
+            <div
+              key={index}
+              className="array-bar"
+              style={{
+                height: `${value}px`,
+                width: `${100 / arraySize}%`,
+                backgroundColor: 'blue'
+              }}
+            >
+            </div>
+          ))}
+        </div>
         <div id="complexity">
           <h3>TIME COMPLEXITY</h3>
           <div className="time-complexity" id="time-complexity-id">
@@ -108,20 +126,8 @@ function App() {
             </div>
           </div>
         </div>
-        <div className="array-container" id="array_container">
-          {array.map((value, index) => (
-            <div
-              key={index}
-              className="array-bar"
-              style={{
-                height: `${value}px`,
-                width: `${100 / arraySize}%`,
-                backgroundColor: 'blue'
-              }}
-            >
-            </div>
-          ))}
-        </div>
+        
+
         {isSorting && selectedAlgo === 'selection' && (
           <SelectionSort
             array={array}
@@ -140,6 +146,22 @@ function App() {
         )}
         {isSorting && selectedAlgo === 'insertion' && (
           <InsertionSort
+            array={array}
+            setArray={setArray}
+            algoSpeed={algoSpeed}
+            setIsSorting={setIsSorting}
+          />
+        )}
+        {isSorting && selectedAlgo === 'quick' && (
+          <QuickSort
+            array={array}
+            setArray={setArray}
+            algoSpeed={algoSpeed}
+            setIsSorting={setIsSorting}
+          />
+        )}
+        {isSorting && selectedAlgo === 'merge' && (
+          <MergeSort
             array={array}
             setArray={setArray}
             algoSpeed={algoSpeed}

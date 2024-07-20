@@ -1,6 +1,6 @@
 .container {
     padding: 10px;
-    background-color: rgba(0, 0, 0, 0.481);
+    background-color: rgba(100, 178, 246);
     font-family: sans-serif;
 }
 
@@ -15,10 +15,9 @@
     padding: 10px;
     font-size: 40px;
     font-weight: 800;
-    border: 0px solid black;
     border-radius: 10px;
-    background-color: rgba(37, 37, 36, 0.616);
-    color: rgba(208, 207, 207, 0.701);
+    background-color: rgba(20, 41, 64, 0.752);
+    color: rgba(208, 207, 207, 0.877);
     text-align: center;
     align-content: center;
 }
@@ -27,10 +26,9 @@
     flex: 2;
     display: flex;
     flex-wrap: wrap;
-    border: 0px solid black;
     border-radius: 10px;
-    background-color: rgba(37, 37, 36, 0.616);
-    color: rgba(208, 207, 207, 0.701);
+    background-color: rgba(20, 41, 64, 0.752);
+    color: rgba(208, 207, 207, 0.877);
     align-items: center;
 }
 
