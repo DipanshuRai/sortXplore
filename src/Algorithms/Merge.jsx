@@ -20,14 +20,14 @@ const MergeSort = ({ array, setArray, algoSpeed, setIsSorting }) => {
 
             for (let i = 0; i < n1; i++) {
                 left[i] = arr[low + i];
-                updateColor(low + i, 'red');
-                await new Promise(resolve => setTimeout(resolve, (10 - algoSpeed) * 100));
+
             }
             for (let j = 0; j < n2; j++) {
                 right[j] = arr[mid + 1 + j];
-                updateColor(mid + 1 + j, 'blue');
-                await new Promise(resolve => setTimeout(resolve, (10 - algoSpeed) * 100));
             }
+            for(let i=low; i<=high; i++)
+                updateColor(i,"red");
+            await new Promise(resolve => setTimeout(resolve, (10 - algoSpeed) * 100));
 
             let i = 0, j = 0, k = low;
             while (i < n1 && j < n2) {
@@ -67,6 +67,8 @@ const MergeSort = ({ array, setArray, algoSpeed, setIsSorting }) => {
         const mergeSortHelper = async (arr, low, high) => {
             if (low < high) {
                 const mid = Math.floor((low + high) / 2);
+                await new Promise(resolve => setTimeout(resolve, (10 - algoSpeed) * 100));
+                updateColor(mid,"yellow");
                 await mergeSortHelper(arr, low, mid);
                 await mergeSortHelper(arr, mid + 1, high);
                 await merge(arr, low, mid, high);
