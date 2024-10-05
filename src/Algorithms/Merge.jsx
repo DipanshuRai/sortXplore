@@ -6,11 +6,15 @@ const MergeSort = ({ array, setArray, algoSpeed, setIsSorting }) => {
         document.getElementsByClassName('array-bar')[index].style.backgroundColor = color;
     }
 
+    const delay = (algoSpeed) => {
+        return new Promise((resolve) => setTimeout(resolve, (10 - algoSpeed) * 100));
+    };
+
     useEffect(() => {
-        document.getElementById("Time_Worst").innerText = "O(NlogN)";
-        document.getElementById("Time_Average").innerText = "Θ(NlogN)";
-        document.getElementById("Time_Best").innerText = "Ω(NlogN)";
-        document.getElementById("Space_Worst").innerText = "O(N)";
+        document.getElementById("Time_Worst").innerHTML = "O(nlogn)";
+        document.getElementById("Time_Average").innerHTML = "Θ(nlogn)";
+        document.getElementById("Time_Best").innerHTML = "Ω(nlogn)";
+        document.getElementById("Space_Worst").innerHTML = "O(n)";
 
         const merge = async (arr, low, mid, high) => {
             const n1 = mid - low + 1;
@@ -27,7 +31,7 @@ const MergeSort = ({ array, setArray, algoSpeed, setIsSorting }) => {
             }
             for(let i=low; i<=high; i++)
                 updateColor(i,"red");
-            await new Promise(resolve => setTimeout(resolve, (10 - algoSpeed) * 100));
+            await delay(algoSpeed);
 
             let i = 0, j = 0, k = low;
             while (i < n1 && j < n2) {
@@ -41,7 +45,7 @@ const MergeSort = ({ array, setArray, algoSpeed, setIsSorting }) => {
                     j++;
                 }
                 setArray([...arr]);
-                await new Promise(resolve => setTimeout(resolve, (10 - algoSpeed) * 100));
+                await delay(algoSpeed);
                 k++;
             }
 
@@ -49,7 +53,7 @@ const MergeSort = ({ array, setArray, algoSpeed, setIsSorting }) => {
                 arr[k] = left[i];
                 updateColor(k, 'green');
                 setArray([...arr]);
-                await new Promise(resolve => setTimeout(resolve, (10 - algoSpeed) * 100));
+                await delay(algoSpeed);
                 i++;
                 k++;
             }
@@ -58,7 +62,7 @@ const MergeSort = ({ array, setArray, algoSpeed, setIsSorting }) => {
                 arr[k] = right[j];
                 updateColor(k, 'green');
                 setArray([...arr]);
-                await new Promise(resolve => setTimeout(resolve, (10 - algoSpeed) * 100));
+                await delay(algoSpeed);
                 j++;
                 k++;
             }
@@ -67,7 +71,7 @@ const MergeSort = ({ array, setArray, algoSpeed, setIsSorting }) => {
         const mergeSortHelper = async (arr, low, high) => {
             if (low < high) {
                 const mid = Math.floor((low + high) / 2);
-                await new Promise(resolve => setTimeout(resolve, (10 - algoSpeed) * 100));
+                await delay(algoSpeed);
                 updateColor(mid,"yellow");
                 await mergeSortHelper(arr, low, mid);
                 await mergeSortHelper(arr, mid + 1, high);
@@ -78,6 +82,7 @@ const MergeSort = ({ array, setArray, algoSpeed, setIsSorting }) => {
         const mergeSort = async () => {
             const n = array.length;
             const arrayCopy = [...array];
+            // setIsSorting(true);
             await mergeSortHelper(arrayCopy, 0, n - 1);
             setIsSorting(false);
         };

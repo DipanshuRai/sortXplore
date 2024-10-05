@@ -6,23 +6,27 @@ const SelectionSort = ({ array, setArray, algoSpeed, setIsSorting }) => {
         document.getElementsByClassName('array-bar')[index].style.backgroundColor = color;
     }
 
+    const delay = (algoSpeed) => {
+        return new Promise((resolve) => setTimeout(resolve, (10 - algoSpeed) * 100));
+    };
+
     useEffect(() => {
-        document.getElementById("Time_Worst").innerText = "O(N^2)";
-        document.getElementById("Time_Average").innerText = "Θ(N^2)";
-        document.getElementById("Time_Best").innerText = "Ω(N^2)";
-        document.getElementById("Space_Worst").innerText = "O(1)";
+        document.getElementById("Time_Worst").innerHTML = "O(N<sup>2</sup>)";
+        document.getElementById("Time_Average").innerHTML = "Θ(N<sup>2</sup>)";
+        document.getElementById("Time_Best").innerHTML = "Ω(N<sup>2</sup>)";
+        document.getElementById("Space_Worst").innerHTML = "O(1)";
 
         const selectionSort = async () => {
+            // setIsSorting(true);
             const n = array.length;
             const arrayCopy = [...array];
-
             for (let i = 0; i < n - 1; i++) {
-                await new Promise((resolve) => setTimeout(resolve, (10 - algoSpeed) * 100));
+                await delay(algoSpeed);
                 updateColor(i,"red");
                 let minIndex = i;
                 for (let j = i + 1; j < n; j++) {
                     updateColor(j,"yellow");
-                    await new Promise((resolve) => setTimeout(resolve, (10 - algoSpeed) * 100));
+                    await delay(algoSpeed);
                     if (arrayCopy[j] < arrayCopy[minIndex]) {
                         if (minIndex !== i)
                             updateColor(minIndex,"blue");

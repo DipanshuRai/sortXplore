@@ -6,15 +6,19 @@ const QuickSort = ({ array, setArray, algoSpeed, setIsSorting }) => {
         document.getElementsByClassName('array-bar')[index].style.backgroundColor = color;
     }
 
+    const delay = (algoSpeed) => {
+        return new Promise((resolve) => setTimeout(resolve, (10 - algoSpeed) * 100));
+    };
+
     useEffect(() => {
-        document.getElementById("Time_Worst").innerText = "O(N^2)";
-        document.getElementById("Time_Average").innerText = "Θ(NlogN)";
-        document.getElementById("Time_Best").innerText = "Ω(N)";
-        document.getElementById("Space_Worst").innerText = "O(1)";
+        document.getElementById("Time_Worst").innerHTML = "O(n<sup>2</sup>)";
+        document.getElementById("Time_Average").innerHTML = "Θ(nlogn)";
+        document.getElementById("Time_Best").innerHTML= "Ω(n)";
+        document.getElementById("Space_Worst").innerHTML = "O(1)";
 
         const partition = async (arr, low, high) => {
             let pivot = arr[low];
-            await new Promise((resolve) => setTimeout(resolve, (10 - algoSpeed) * 100));
+            await delay(algoSpeed);
             let i = low;
             let j = high;
             while (i < j) {
@@ -23,29 +27,29 @@ const QuickSort = ({ array, setArray, algoSpeed, setIsSorting }) => {
                         updateColor(i, "red");
                     else
                         updateColor(i, "yellow");
-                    await new Promise((resolve) => setTimeout(resolve, (10 - algoSpeed) * 100));
+                    await delay(algoSpeed);
                     i++;
                     if (i - 1 != low)
                         updateColor(i - 1, "blue");
                 }
                 updateColor(i, "yellow");
-                await new Promise((resolve) => setTimeout(resolve, (10 - algoSpeed) * 100));
+                await delay(algoSpeed);
                 while (j > low && arr[j] > pivot) {
                     updateColor(j, "yellow");
-                    await new Promise((resolve) => setTimeout(resolve, (10 - algoSpeed) * 100));
+                    await delay(algoSpeed);
                     j--;
                     if (j + 1 != i)
                         updateColor(j + 1, "blue");
                 }
                 updateColor(j, "yellow");
-                await new Promise((resolve) => setTimeout(resolve, (10 - algoSpeed) * 100));
+                await delay(algoSpeed);
                 if (i < j)
                     [arr[i], arr[j]] = [arr[j], arr[i]];
                 setArray([...arr]);
-                await new Promise((resolve) => setTimeout(resolve, (10 - algoSpeed) * 100));
+                await delay(algoSpeed);
                 updateColor(i, "blue");
                 updateColor(j, "blue");
-                await new Promise((resolve) => setTimeout(resolve, (10 - algoSpeed) * 100));
+                await delay(algoSpeed);
             }
             [arr[low], arr[j]] = [arr[j], arr[low]];
             updateColor(low, "blue");

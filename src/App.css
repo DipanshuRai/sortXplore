@@ -1,3 +1,10 @@
+body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    width: 100vw;
+}
+
 .container {
     padding: 10px;
     background-color: rgba(100, 178, 246);
@@ -46,7 +53,7 @@
     display: flex;
 }
 
-p {
+.speed,.size {
     margin-right: 20px;
     width: 40%;
 }
@@ -55,16 +62,22 @@ input {
     width: 50%;
 }
 
-.header .parameter .button {
+.button {
     flex: 1;
     font-size: 20px;
     font-weight: 700;
     margin: 10px;
     height: 50px;
+    cursor: pointer;
     background-color: rgba(0, 0, 0, 0.508);
     color: rgba(208, 207, 207, 0.701);
     border: 0px solid black;
     border-radius: 10px;
+}
+
+.button:hover{
+    font-size: 22px;
+    transition: font-size .2s ease-in-out;
 }
 
 .algo {
@@ -74,15 +87,22 @@ input {
     justify-content: center;
 }
 
-.algo .button {
+.algo-button {
     margin: 10px 0;
     padding: 5px 15px;
     border: 0px solid black;
     border-radius: 10px;
+    cursor: pointer;
     font-size: 20px;
     font-weight: 700;
     background-color: rgba(0, 0, 0, 0.508);
     color: rgba(208, 207, 207, 0.701);
+}
+
+.active, .algo-button:hover{
+    background-color: rgba(0, 0, 0, 0.755);
+    transform: scale(1.1) ;
+    transition: transform 0.2s ease;
 }
 
 .main {
@@ -91,21 +111,42 @@ input {
     gap: 10px;
 }
 
-#complexity {
-    padding: 0 10px;
+.complexity {
+    padding: 0 30px;
     flex: 1;
-    border: 0px solid black;
+    /* border: 0px solid black; */
     border-radius: 10px;
     background-color: rgba(37, 37, 36, 0.616);
     color: rgba(208, 207, 207, 0.701);
     min-height: 72.5vh;
 }
 
-#complexity h3 {
-    text-decoration: underline;
+.heading{
+    color: rgba(0, 0, 0, 0.793);
+    text-align: center;
 }
 
 .cases {
+    display: flex;
+    flex-wrap: wrap;
+    line-height: 0;
+}
+
+.sub-heading{
+    font-weight: 700;
+    font-size: 1.1rem;
+    width: 35%;
+    padding: 0;
+}
+
+sup {
+    font-size: 0.8em;
+    vertical-align: super;
+}
+
+#Time_Worst, #Time_Average, #Time_Best, #Space_Worst{
+    font-family:'Trebuchet MS';
+    letter-spacing: 2px;
     font-weight: 600;
 }
 
@@ -125,6 +166,12 @@ input {
 .array-bar {
     background-color: #007bff;
     margin: 0 1px;
+}
+
+@media(max-width: 1024px){
+    .main{
+        flex-direction: column;
+    }
 }
 
 @media (max-width: 500px) {
