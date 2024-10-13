@@ -7,7 +7,7 @@ body {
 
 .container {
     padding: 10px;
-    background-color: rgba(100, 178, 246);
+    background-color: #e7eaf6;
     font-family: sans-serif;
 }
 
@@ -164,8 +164,11 @@ sup {
 }
 
 .array-bar {
-    background-color: #007bff;
+    background-color: rgba(20, 41, 64, 0.552);
     margin: 0 1px;
+    border-radius: 7px 7px 0 0;
+    transition: all 0.2s ease;
+
 }
 
 @media(max-width: 1024px){

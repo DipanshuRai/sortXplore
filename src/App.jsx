@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from 'react';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faRotateRight } from "@fortawesome/free-solid-svg-icons";
 import SelectionSort from './Algorithms/Selection';
 import BubbleSort from './Algorithms/Bubble';
 import InsertionSort from './Algorithms/Insertion';
@@ -14,9 +16,9 @@ const algorithms = {
   merge: MergeSort,
 };
 
+// Algorithm Component
 const SortingAlgorithms = ({ array, setArray, algoSpeed, setIsSorting, isSorting, selectedAlgo }) => {
   const AlgoComponent = algorithms[selectedAlgo];
-
   return (
     <>
       {isSorting && AlgoComponent && (
@@ -38,11 +40,13 @@ function App() {
   const [isSorting, setIsSorting] = useState(false);
   const [selectedAlgo, setSelectedAlgo] = useState(null);
 
+  // Change array length
   const updateArraySize = (e) => {
     setArraySize(Number(e.target.value));
     resetArrayBarColors();
   };
 
+  // Change algorithm speed
   const updateAlgoSpeed = (e) => {
     setAlgoSpeed(Number(e.target.value));
     resetArrayBarColors();
@@ -83,7 +87,8 @@ function App() {
   return (
     <div className="container">
       <div className="header">
-        <div className="title">Sorting Visualizer</div>
+        {/* <div className="title">Sorting Visualizer</div> */}
+        <div className="title">{isSorting?1:0}</div>
         <div className="parameter">
           <div className="sub-parameter">
             <div className="para">
@@ -125,6 +130,9 @@ function App() {
             {algo.charAt(0).toUpperCase() + algo.slice(1)}
           </div>
         ))}
+        <div className='algo-button'>
+          <FontAwesomeIcon icon={faRotateRight} /> Reset
+        </div>
       </div>
 
       <div className="main">
@@ -166,6 +174,17 @@ function App() {
               <p id="Space_Worst"></p>
             </div>
           </div>
+          <h2 className='heading'>PERFORMANCE MEASURE</h2>
+          <div className="space-complexity">
+            <div className="cases">
+              <p className="sub-heading">Time :</p>
+              <p id="time-taken"></p>
+            </div>
+            <div className="cases">
+              <p className="sub-heading">Memory :</p>
+              <p id="memory-used"></p>
+            </div>
+          </div> 
         </div>
 
         <SortingAlgorithms
