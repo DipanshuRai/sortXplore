@@ -27,6 +27,7 @@ const SortingAlgorithms = ({ array, setArray, algoSpeed, setIsSorting, isSorting
           setArray={setArray}
           algoSpeed={algoSpeed}
           setIsSorting={setIsSorting}
+          isSorting={isSorting}
         />
       )}
     </>
@@ -34,8 +35,8 @@ const SortingAlgorithms = ({ array, setArray, algoSpeed, setIsSorting, isSorting
 };
 
 function App() {
-  const [arraySize, setArraySize] = useState(30);
-  const [algoSpeed, setAlgoSpeed] = useState(7);
+  const [arraySize, setArraySize] = useState(50);
+  const [algoSpeed, setAlgoSpeed] = useState(5);
   const [array, setArray] = useState([]);
   const [isSorting, setIsSorting] = useState(false);
   const [selectedAlgo, setSelectedAlgo] = useState(null);
@@ -57,38 +58,45 @@ function App() {
     const newArray = Array.from({ length: arraySize }, () => Math.floor(Math.random() * 500) + 5);
     setArray(newArray);
     resetArrayBarColors();
+    document.getElementById("comparisions").innerHTML = "";
+    document.getElementById("swaps").innerHTML = "";
+    document.getElementById("stable").innerHTML = "";
+    document.getElementById("inplace").innerHTML = "";
+    document.getElementById("Time_Worst").innerHTML = "";
+    document.getElementById("Time_Average").innerHTML = "";
+    document.getElementById("Time_Best").innerHTML = "";
+    document.getElementById("Space_Worst").innerHTML = "";
   };
 
   const resetArrayBarColors = () => {
     const bars = document.getElementsByClassName('array-bar');
     for (let bar of bars) {
-      bar.style.backgroundColor = 'blue';
+      bar.style.backgroundColor = 'rgba(26, 53, 177, 0.888)';
     }
   };
 
   const selectAlgorithm = (algo) => {
     if (!isSorting) {
       setIsSorting(true);
+      resetArrayBarColors();
       setSelectedAlgo(algo);
     }
+  };
+
+  const reset = () => {
+    setIsSorting(false);
+    // resetArrayBarColors();
+    // generateNewArray();
   };
 
   useEffect(() => {
     generateNewArray();
   }, [arraySize]);
 
-  useEffect(() => {
-    if (!isSorting) {
-      resetArrayBarColors();
-    }
-  }, [isSorting]);
-  console.log({isSorting});
-
   return (
     <div className="container">
       <div className="header">
-        {/* <div className="title">Sorting Visualizer</div> */}
-        <div className="title">{isSorting?1:0}</div>
+        <div className="title">Sorting Visualizer</div>
         <div className="parameter">
           <div className="sub-parameter">
             <div className="para">
@@ -99,6 +107,7 @@ function App() {
                 min="10"
                 max="150"
                 value={arraySize}
+                className={`${isSorting ? 'blockButton' : ''}`}
                 onChange={updateArraySize}
                 disabled={isSorting}
               />
@@ -111,12 +120,13 @@ function App() {
                 min="1"
                 max="10"
                 value={algoSpeed}
+                className={`${isSorting ? 'blockButton' : ''}`}
                 onChange={updateAlgoSpeed}
                 disabled={isSorting}
               />
             </div>
           </div>
-          <button className="button" onClick={generateNewArray} disabled={isSorting}>Generate Array</button>
+          <button className={`button ${isSorting ? 'blockButton' : ''}`} onClick={generateNewArray} disabled={isSorting}>Generate Array</button>
         </div>
       </div>
 
@@ -125,13 +135,13 @@ function App() {
           <div
             key={algo}
             onClick={() => selectAlgorithm(algo)}
-            className={`algo-button ${isSorting && selectedAlgo === algo ? 'active' : ''}`}
+            className={`algo-button ${isSorting ? 'blockButton' : ''} ${isSorting && selectedAlgo === algo ? 'active' : ''}`}
           >
             {algo.charAt(0).toUpperCase() + algo.slice(1)}
           </div>
         ))}
-        <div className='algo-button'>
-          <FontAwesomeIcon icon={faRotateRight} /> Reset
+        <div className='reset-button' onClick={reset}>
+          <FontAwesomeIcon icon={faRotateRight} /> Stop
         </div>
       </div>
 
@@ -144,7 +154,6 @@ function App() {
               style={{
                 height: `${value}px`,
                 width: `${100 / arraySize}%`,
-                backgroundColor: 'blue'
               }}
             >
             </div>
@@ -155,36 +164,44 @@ function App() {
           <h2 className='heading'>TIME COMPLEXITY</h2>
           <div className="time-complexity">
             <div className="cases">
-              <p className="sub-heading">Worst Case :</p>
+              <p className="sub-heading">Worst Case</p>
               <p id="Time_Worst"></p>
             </div>
             <div className="cases">
-              <p className="sub-heading">Average Case :</p>
+              <p className="sub-heading">Average Case</p>
               <p id="Time_Average"></p>
             </div>
             <div className="cases">
-              <p className="sub-heading">Best Case :</p>
+              <p className="sub-heading">Best Case</p>
               <p id="Time_Best"></p>
             </div>
           </div>
           <h2 className='heading'>SPACE COMPLEXITY</h2>
           <div className="space-complexity">
             <div className="cases">
-              <p className="sub-heading">Worst Case :</p>
+              <p className="sub-heading">Worst Case</p>
               <p id="Space_Worst"></p>
             </div>
           </div>
           <h2 className='heading'>PERFORMANCE MEASURE</h2>
           <div className="space-complexity">
             <div className="cases">
-              <p className="sub-heading">Time :</p>
-              <p id="time-taken"></p>
+              <p className="sub-heading">Stable?</p>
+              <p id="stable"></p>
             </div>
             <div className="cases">
-              <p className="sub-heading">Memory :</p>
-              <p id="memory-used"></p>
+              <p className="sub-heading">Inplace?</p>
+              <p id="inplace"></p>
             </div>
-          </div> 
+            <div className="cases">
+              <p className="sub-heading">Comparisions</p>
+              <p id="comparisions"></p>
+            </div>
+            <div className="cases">
+              <p className="sub-heading">Swaps</p>
+              <p id="swaps"></p>
+            </div>
+          </div>
         </div>
 
         <SortingAlgorithms

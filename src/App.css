@@ -3,12 +3,12 @@ body {
     padding: 0;
     height: 100vh;
     width: 100vw;
+    font-family: 'Roboto', sans-serif;
 }
 
 .container {
     padding: 10px;
-    background-color: #e7eaf6;
-    font-family: sans-serif;
+    background-color: #f4f4f9;
 }
 
 .header {
@@ -23,10 +23,11 @@ body {
     font-size: 40px;
     font-weight: 800;
     border-radius: 10px;
-    background-color: rgba(20, 41, 64, 0.752);
-    color: rgba(208, 207, 207, 0.877);
+    background: linear-gradient(135deg, #2a5298, #4a69bd);
+    color: rgba(232, 230, 230, 0.877);
     text-align: center;
     align-content: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
 }
 
 .header .parameter {
@@ -34,9 +35,10 @@ body {
     display: flex;
     flex-wrap: wrap;
     border-radius: 10px;
-    background-color: rgba(20, 41, 64, 0.752);
-    color: rgba(208, 207, 207, 0.877);
+    background: linear-gradient(135deg, #2a5298, #4a69bd);
+    color: rgba(232, 230, 230, 0.877);
     align-items: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
 }
 
 .header .parameter .sub-parameter {
@@ -55,11 +57,16 @@ body {
 
 .speed,.size {
     margin-right: 20px;
-    width: 40%;
+    width: 50%;
 }
 
-input {
+input[type="range"] {
     width: 50%;
+    outline: none;
+}
+
+input[type="range"]:hover {
+    background: #417ee6;
 }
 
 .button {
@@ -70,9 +77,10 @@ input {
     height: 50px;
     cursor: pointer;
     background-color: rgba(0, 0, 0, 0.508);
-    color: rgba(208, 207, 207, 0.701);
-    border: 0px solid black;
+    color: rgba(232, 230, 230, 0.877);
+    border: none;
     border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 .button:hover{
@@ -90,19 +98,48 @@ input {
 .algo-button {
     margin: 10px 0;
     padding: 5px 15px;
-    border: 0px solid black;
+    border: none;
     border-radius: 10px;
     cursor: pointer;
     font-size: 20px;
     font-weight: 700;
-    background-color: rgba(0, 0, 0, 0.508);
-    color: rgba(208, 207, 207, 0.701);
+    background: linear-gradient(135deg, #2855b5, #22879e);
+    color: rgba(232, 230, 230, 0.877);
+    transition: transform 0.3s ease, background 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
-.active, .algo-button:hover{
-    background-color: rgba(0, 0, 0, 0.755);
+.algo-button:hover{
     transform: scale(1.1) ;
-    transition: transform 0.2s ease;
+    background: linear-gradient(135deg, #3b5998, #6a89cc);
+}
+
+.reset-button {
+    margin: 10px 0;
+    padding: 5px 15px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 20px;
+    font-weight: 700;
+    background: linear-gradient(135deg, #b33939, #eb4d4b);
+    color: rgba(232, 230, 230, 0.877);
+    transition: transform 0.3s ease, background 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.reset-button:hover{
+    transform: scale(1.1) ;
+    background: linear-gradient(135deg, #6a2c2c, #b33939);
+}
+
+.active{
+    background: linear-gradient(135deg, #4a69bd, #6a89cc);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.blockButton{
+    cursor: not-allowed;
 }
 
 .main {
@@ -112,18 +149,21 @@ input {
 }
 
 .complexity {
-    padding: 0 30px;
+    padding: 0 20px;
     flex: 1;
-    /* border: 0px solid black; */
     border-radius: 10px;
-    background-color: rgba(37, 37, 36, 0.616);
-    color: rgba(208, 207, 207, 0.701);
-    min-height: 72.5vh;
+    background: linear-gradient(135deg, #2a5298, #4a69bd);
+    color: rgba(232, 230, 230, 0.877);
+    /* min-height: 72.5vh; */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
 }
 
 .heading{
-    color: rgba(0, 0, 0, 0.793);
+    color: rgba(38, 38, 38, 0.942);
     text-align: center;
+    text-decoration: underline;
+    text-decoration-thickness: 1.5px;
+    text-underline-offset: 5px;
 }
 
 .cases {
@@ -135,8 +175,8 @@ input {
 .sub-heading{
     font-weight: 700;
     font-size: 1.1rem;
-    width: 35%;
-    padding: 0;
+    width: 40%;
+    /* padding: 0; */
 }
 
 sup {
@@ -144,36 +184,39 @@ sup {
     vertical-align: super;
 }
 
-#Time_Worst, #Time_Average, #Time_Best, #Space_Worst{
-    font-family:'Trebuchet MS';
-    letter-spacing: 2px;
-    font-weight: 600;
+#Time_Worst, #Time_Average, #Time_Best, #Space_Worst, #stable, #inplace, #comparisions, #swaps{
+    font-family:'Roboto Mono', monospace;
+    letter-spacing: 1px;
+    color: #89cddc;
 }
 
 .array-container {
     flex: 2;
     padding: 10px;
-    border: 0px solid black;
+    border: none;
     border-radius: 10px;
-    background-color: rgba(37, 37, 36, 0.616);
-    color: rgba(208, 207, 207, 0.701);
+    background: linear-gradient(135deg, #2a5298, #4a69bd);
     display: flex;
     align-items: flex-end;
     width: 100%;
     min-height: 69vh;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
 }
 
 .array-bar {
-    background-color: rgba(20, 41, 64, 0.552);
+    background-color: rgba(26, 53, 177, 0.888);
     margin: 0 1px;
     border-radius: 7px 7px 0 0;
     transition: all 0.2s ease;
-
 }
 
 @media(max-width: 1024px){
     .main{
         flex-direction: column;
+    }
+
+    .complexity{
+        margin-right: 20px;
     }
 }
 
