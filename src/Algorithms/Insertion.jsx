@@ -59,7 +59,7 @@ const InsertionSort = ({ array, setArray, algoSpeed, setIsSorting, isSorting }) 
                     updateColor(j-1,"#E34234");
                     await delay(algoSpeed);
                     setComparisons(prev=>prev+1);
-                    setSwaps(prev=>prev+0.5);
+                    setSwaps(prev=>prev+1);
                     [arrayCopy[j], arrayCopy[j-1]] = [arrayCopy[j-1], arrayCopy[j]];
                     setArray([...arrayCopy]);
                     updateColor(j,"#50C878"); // green
