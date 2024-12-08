@@ -11,6 +11,11 @@
     It features dynamic animations and performance insights, making it an ideal tool for learning and understanding sorting algorithms.
   </p>
 
+  <h2>🔗 Open the Project</h2>
+  <p>
+    <a href="<https://sorting-visualizer-5.vercel.app>" target="_blank">Click here to open the Sorting Visualizer</a>
+  </p>
+
   <h2>🚀 Features</h2>
   <ul>
     <li>Supports five sorting algorithms:
