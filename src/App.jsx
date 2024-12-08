@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faRotateRight } from "@fortawesome/free-solid-svg-icons";
+import { faHand } from '@fortawesome/free-solid-svg-icons';
 import SelectionSort from './Algorithms/Selection';
 import BubbleSort from './Algorithms/Bubble';
 import InsertionSort from './Algorithms/Insertion';
@@ -141,7 +141,7 @@ function App() {
           </div>
         ))}
         <div className='reset-button' onClick={reset}>
-          <FontAwesomeIcon icon={faRotateRight} /> Stop
+          <FontAwesomeIcon icon={faHand} /> Stop
         </div>
       </div>
 
