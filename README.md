@@ -40,7 +40,6 @@
     <li>React.js for UI and interactivity.</li>
     <li>CSS for styling and responsive design.</li>
     <li>FontAwesome for icons.</li>
-    <li>JavaScript for sorting logic and animations.</li>
   </ul>
 
   <h2>📚 How to Use</h2>
