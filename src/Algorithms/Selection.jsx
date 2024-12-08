@@ -56,7 +56,7 @@ const SelectionSort = ({ array, setArray, algoSpeed, setIsSorting, isSorting }) 
 
                     updateColor(j, "#D5E334"); // yellow
                     await delay(algoSpeed);
-                    setComparisons(prev => prev + 0.5);
+                    setComparisons(prev => prev + 1);
                     if (arrayCopy[j] < arrayCopy[minIndex]) {
                         if (minIndex !== i)
                             updateColor(minIndex, "rgba(26, 53, 177, 0.888)"); // blue
@@ -69,7 +69,7 @@ const SelectionSort = ({ array, setArray, algoSpeed, setIsSorting, isSorting }) 
                 if (minIndex !== i) {
                     [arrayCopy[i], arrayCopy[minIndex]] = [arrayCopy[minIndex], arrayCopy[i]];
                     setArray([...arrayCopy]);
-                    setSwaps(prev => prev + 0.5);
+                    setSwaps(prev => prev + 1);
                 }
                 updateColor(minIndex, "rgba(26, 53, 177, 0.888)");
                 updateColor(i, "#50C878"); // green

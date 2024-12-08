@@ -56,9 +56,9 @@ const BubbleSort = ({ array, setArray, algoSpeed, setIsSorting, isSorting }) => 
                     updateColor(j,"#E34234"); // red
                     updateColor(j+1,"#E34234");
                     await delay(algoSpeed);
-                    setComparisons(prev=>prev+0.5);
+                    setComparisons(prev=>prev+1);
                     if (arrayCopy[j] > arrayCopy[j+1]) {
-                        setSwaps(prev=>prev+0.5);
+                        setSwaps(prev=>prev+1);
                         [arrayCopy[j], arrayCopy[j+1]] = [arrayCopy[j+1], arrayCopy[j]];
                         flag=1;
                     }

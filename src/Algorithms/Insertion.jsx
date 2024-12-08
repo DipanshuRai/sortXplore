@@ -51,14 +51,14 @@ const InsertionSort = ({ array, setArray, algoSpeed, setIsSorting, isSorting }) 
                 await delay(algoSpeed);
                 let j=i;
                 if(j>0 && arrayCopy[j]>=arrayCopy[j-1])
-                    setComparisons(prev=>prev+0.5);
+                    setComparisons(prev=>prev+1);
                 while(j>0 && arrayCopy[j]<arrayCopy[j-1]){
                     if (isCancelled.current) return;
 
                     updateColor(j,"#E34234"); // red
                     updateColor(j-1,"#E34234");
                     await delay(algoSpeed);
-                    setComparisons(prev=>prev+0.5);
+                    setComparisons(prev=>prev+1);
                     setSwaps(prev=>prev+0.5);
                     [arrayCopy[j], arrayCopy[j-1]] = [arrayCopy[j-1], arrayCopy[j]];
                     setArray([...arrayCopy]);
