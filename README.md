@@ -54,7 +54,7 @@ cd sorting-visualizer</code></pre>
     <li>Start the development server:
       <pre><code>npm start</code></pre>
     </li>
-    <li>Open the application in your browser at <a href="http://localhost:3000">http://localhost:3000</a>.</li>
+    <li>Open the application in your browser.</li>
   </ol>
 
   <h2>📈 Supported Algorithms and Their Complexities</h2>
@@ -116,32 +116,12 @@ cd sorting-visualizer</code></pre>
   <h2>🎨 Future Improvements</h2>
   <ul>
     <li>Add more sorting algorithms (e.g., Heap Sort, Radix Sort).</li>
-    <li>Implement a "Pause" button.</li>
     <li>Add sound effects during sorting operations.</li>
     <li>Include a dark mode toggle.</li>
     <li>Allow users to input custom arrays.</li>
   </ul>
 
-  <h2>👨‍💻 Contributing</h2>
-  <p>Contributions are welcome! To contribute:</p>
-  <ol>
-    <li>Fork the repository.</li>
-    <li>Create a new branch:
-      <pre><code>git checkout -b feature-branch</code></pre>
-    </li>
-    <li>Commit your changes:
-      <pre><code>git commit -m "Add feature"</code></pre>
-    </li>
-    <li>Push to the branch:
-      <pre><code>git push origin feature-branch</code></pre>
-    </li>
-    <li>Open a Pull Request.</li>
-  </ol>
-
-  <h2>📝 License</h2>
-  <p>This project is licensed under the MIT License. See the <code>LICENSE</code> file for details.</p>
-
   <h2>📧 Contact</h2>
-  <p>If you have any questions or suggestions, please reach out at <a href="mailto:your-email@example.com">your-email@example.com</a>.</p>
+  <p>If you have any questions or suggestions, please reach out at <a href="mailto:dipanshurai933@gmail.com">dipanshurai933@gmail.com</a>.</p>
 </body>
 </html>
