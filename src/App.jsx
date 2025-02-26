@@ -96,7 +96,7 @@ function App() {
   return (
     <div className="container">
       <div className="header">
-        <div className="title">Sorting Visualizer</div>
+        <div className="title">SortXplore</div>
         <div className="parameter">
           <div className="sub-parameter">
             <div className="para">
