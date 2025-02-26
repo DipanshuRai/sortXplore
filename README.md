@@ -50,7 +50,7 @@
   <h2>📚 How to Use</h2>
   <ol>
     <li>Clone the repository:
-      <pre><code>git clone https://github.com/yourusername/sorting-visualizer.git
+      <pre><code>git clone https://github.com/DipanshuRai/sorting-visualizer.git
 cd sorting-visualizer</code></pre>
     </li>
     <li>Install dependencies:
