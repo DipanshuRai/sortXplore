@@ -5,15 +5,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
-  <h1>Sorting Visualizer</h1>
+  <h1>sortXplore (Sorting Visualizer)</h1>
   <p>
-    Sorting Visualizer is an interactive, fully responsive web application that demonstrates the working of various sorting algorithms.
+    sortXplore is an interactive, fully responsive web application that demonstrates the working of various sorting algorithms.
     It features dynamic animations and performance insights, making it an ideal tool for learning and understanding sorting algorithms.
   </p>
 
   <h2>🔗 Open the Project</h2>
   <p>
-    <a href="https://sorting-visualizer-5.vercel.app" target="_blank">Click here to open the Sorting Visualizer</a>
+    <a href="https://sortxplore-5.vercel.app/" target="_blank">Click here to open the sortXplore</a>
   </p>
 
   <h2>🚀 Features</h2>
@@ -50,7 +50,7 @@
   <h2>📚 How to Use</h2>
   <ol>
     <li>Clone the repository:
-      <pre><code>git clone https://github.com/DipanshuRai/sorting-visualizer.git
+      <pre><code>git clone https://github.com/DipanshuRai/sortXplore.git
 cd sorting-visualizer</code></pre>
     </li>
     <li>Install dependencies:
